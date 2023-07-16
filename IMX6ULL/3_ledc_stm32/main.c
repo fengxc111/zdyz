@@ -1,4 +1,4 @@
-#include "main.h"
+#include "imx6u.h"
 
 /**
  * @brief 初始化外设时钟
@@ -6,13 +6,13 @@
  */
 void clk_enable()
 {
-    CCM_CCGR0 = 0xFFFFFFFF;
-    CCM_CCGR1 = 0xFFFFFFFF;
-    CCM_CCGR2 = 0xFFFFFFFF;
-    CCM_CCGR3 = 0xFFFFFFFF;
-    CCM_CCGR4 = 0xFFFFFFFF;
-    CCM_CCGR5 = 0xFFFFFFFF;
-    CCM_CCGR6 = 0xFFFFFFFF;
+    CCM->CCGR0 = 0xFFFFFFFF;
+    CCM->CCGR1 = 0xFFFFFFFF;
+    CCM->CCGR2 = 0xFFFFFFFF;
+    CCM->CCGR3 = 0xFFFFFFFF;
+    CCM->CCGR4 = 0xFFFFFFFF;
+    CCM->CCGR5 = 0xFFFFFFFF;
+    CCM->CCGR6 = 0xFFFFFFFF;
 }
 
 /**
@@ -21,10 +21,10 @@ void clk_enable()
  */
 void led_init()
 {
-    SW_MUX_GPIO1_IO03 = 0x5;
-    SW_PAD_GPIO1_IO03 = 0x10B0;
-    GPIO1_GDIR = 0x8;
-    GPIO1_DR = 0x0;
+    IOMUX_SW_MUX->GPIO1_IO03 = 0x5;
+    IOMUX_SW_PAD->GPIO1_IO03 = 0x10B0;
+    GPIO1->GDIR = 0x8;
+    GPIO1->DR = 0x0;
 }
 
 void delay_short(volatile unsigned int n)
@@ -42,12 +42,12 @@ void delay(volatile unsigned int n)
 
 void led_on()
 {
-    GPIO1_DR &= ~(1<<3);
+    GPIO1->DR &= ~(1<<3);
 }
 
 void led_off()
 {
-    GPIO1_DR |= (1<<3);
+    GPIO1->DR |= (1<<3);
 }
 
 int main()
