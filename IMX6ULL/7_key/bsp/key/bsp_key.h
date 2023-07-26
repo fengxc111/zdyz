@@ -10,8 +10,24 @@ enum keyvalue{
     KEY0_VALUE
 };
 
+/**
+ * @brief 初始化按键
+ * 
+ */
 void key_init();
+
+/**
+ * @brief 读取按键值
+ * 
+ * @return int 
+ */
 int read_key();
+
+/**
+ * @brief 获取按键状态，防抖
+ * 
+ * @return int 
+ */
 int key_getvalue();
 
 #endif // !__BSP_KEY_H

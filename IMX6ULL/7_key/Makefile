@@ -11,14 +11,16 @@ INCLUDIR := imx6u \
 			bsp/led \
 			bsp/delay \
 			bsp/beep \
-			bsp/key
+			bsp/key \
+			bsp/gpio
 
 SRCDIR := project \
 		bsp/clk \
 		bsp/led \
 		bsp/delay \
 		bsp/beep \
-		bsp/key
+		bsp/key \
+		bsp/gpio
 
 INCLUDE := $(patsubst %, -I%, $(INCLUDIR)) 
 

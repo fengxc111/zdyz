@@ -13,8 +13,25 @@
  * 
  */
 void led_init();
+
+/**
+ * @brief 使能led
+ * 
+ */
 void led_on();
+
+/**
+ * @brief 关闭led
+ * 
+ */
 void led_off();
+
+/**
+ * @brief 切换led状态
+ * 
+ * @param led       led号
+ * @param status    led状态，ON/OFF
+ */
 void led_switch(int led, int status);
 
 

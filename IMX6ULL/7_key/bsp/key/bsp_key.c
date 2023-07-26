@@ -1,17 +1,23 @@
 #include "bsp_key.h"
 #include "bsp_delay.h"
+#include "bsp_gpio.h"
 
 void key_init()
 {
+    gpio_pin_config_t key_config;
+
     IOMUXC_SetPinMux(IOMUXC_UART1_CTS_B_GPIO1_IO18, 0);
     IOMUXC_SetPinConfig(IOMUXC_UART1_CTS_B_GPIO1_IO18, 0xF080);
 
-    GPIO1->GDIR &= ~(1<<18);
+    key_config.direction = kGPIO_DigitalInput;
+    gpio_init(GPIO1, 18,  &key_config);
 }
 
 int read_key()
 {
-    return ((GPIO1->DR) >> 18) & (0x1);
+    int ret = 0;
+    ret = gpio_pinread(GPIO1, 18);
+    return ret;
 }
 
 int key_getvalue()
