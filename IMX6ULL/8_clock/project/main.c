@@ -12,14 +12,16 @@ int main()
     clk_enable();
 
     led_init();
-    // beep_init();
+    beep_init();
     // key_init();
 
     while(1)
     {
         led_on();
+        beep_switch(ON);
         delay(1000);
 
+        beep_switch(OFF);
         led_off();
         delay(300);
     }
