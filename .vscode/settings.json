@@ -1,6 +1,0 @@
-{
-    "files.associations": {
-        "bsp_beep.h": "c",
-        "bsp_gpio.h": "c"
-    }
-}
