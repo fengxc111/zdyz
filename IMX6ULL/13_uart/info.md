@@ -54,3 +54,15 @@ UART1_UCR3[bit2]必须置1
 # ATTENTION！！！ UBIR必须在UBMR之前设置！！！
 
 ![uart8](./pics/uart8.png)
+
+
+
+在上述UART串口驱动的基础上，实现printf和scanf标准输入输出
+在项目中导入stdio文件夹，在头文件*stdio.h*中，可以看见如下声明
+
+```c
+extern void putc(unsigned char c);
+extern unsigned char getc(void);
+```
+
+代码中只需实现putc和getc即可

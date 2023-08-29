@@ -43,4 +43,13 @@ void putc(unsigned char c);
 unsigned char getc();
 void puts(char *str);
 
+/**
+ * @brief 设置UART波特率
+ * 
+ * @param base 
+ * @param baudrate 波特率
+ * @param srcclock_hz 时钟源频率(Hz)
+ */
+void uart_setbaudrate(UART_Type *base, unsigned int baudrate, unsigned int srcclock_hz);
+
 #endif // !__BSP_UART_H

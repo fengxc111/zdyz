@@ -9,11 +9,12 @@
 #include "bsp_epit.h"
 #include "bsp_keyfilter.h"
 #include "bsp_uart.h"
-
+#include "stdio.h"
 
 int main()
 {
     unsigned char a;
+    int x, y;
 
     int_init();
     imx6u_clkinit();
@@ -28,6 +29,7 @@ int main()
     unsigned char state = OFF;
     while(1)
     {
+#if 0
         puts("请输入1个字符: ");
         a = getc();
         putc(a);
@@ -37,8 +39,14 @@ int main()
         putc(a);
         puts("\r\n");
         state = !state;
+#endif
+        printf("请输入两个整数， 使用空格隔开：");
+        scanf("%d %d", &x, &y);
+        printf("\r\n数据%d + %d = %d\r\n", x, y, x+y);
+        printf("%d的十六进制为 %#x\r\n", x+y, x+y);
+        printf("\r\n");
+
         led_switch(LED0, state);
-        // printf("")
     }
 
     return 0;
